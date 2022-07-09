@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/home', to: 'home#index'
 
-  resources : :users, only: [:index, :new, :create, :show]
-  resources : :members, only: [:index, :new, :create, :show]
-  resources : :groups, only: [:index, :new, :create, :show]
+  resources :users, only: [:index, :new, :create, :show]
+  resources :members, only: [:index, :new, :create, :show]
+  resources :groups, only: [:index, :new, :create, :show]
 end
