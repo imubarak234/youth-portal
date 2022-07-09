@@ -12,6 +12,7 @@ class CreateGroups < ActiveRecord::Migration[7.0]
       t.text :address
       t.string :active_region
       t.integer :number_of_members
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

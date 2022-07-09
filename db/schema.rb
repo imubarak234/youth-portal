@@ -26,8 +26,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_023421) do
     t.text "address"
     t.string "active_region"
     t.integer "number_of_members"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -36,8 +38,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_023421) do
     t.string "email"
     t.string "phone_number"
     t.string "active_region"
+    t.bigint "user_id"
+    t.bigint "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_members_on_group_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,4 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_023421) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "groups", "users"
+  add_foreign_key "members", "groups"
+  add_foreign_key "members", "users"
 end

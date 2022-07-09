@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :group_reach
       t.boolean :verified
       t.string :role
-
       t.timestamps
     end
   end
