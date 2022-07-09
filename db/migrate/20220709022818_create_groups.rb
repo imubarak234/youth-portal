@@ -6,7 +6,12 @@ class CreateGroups < ActiveRecord::Migration[7.0]
       t.string :mode_of_funding
       t.text :constitution_of_group
       t.string :state
-
+      t.text :recommendation
+      t.text :guarantor
+      t.string :lga
+      t.text :address
+      t.string :active_region
+      t.integer :number_of_members
       t.timestamps
     end
   end
