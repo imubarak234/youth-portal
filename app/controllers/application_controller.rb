@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :update_allowed_parameters, if: :devise_controller?
 
+  
+
   protected
 
   def update_allowed_parameters
@@ -17,8 +19,8 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     if user_signed_in?
       super
-    elsif request.original_fullpath != fronts_path
-      redirect_to fronts_path, notice: 'if you want to add a notice'
+    elsif request.original_fullpath != home_path
+      redirect_to home_path, notice: 'if you want to add a notice'
     end
     ## if you want render 404 page
     ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
